@@ -2,7 +2,7 @@ Summary:	ISO-2022-JP, EUC-JP and Shift-JIS encoding support for xpdf
 Summary(pl):	Wsparcie kodowania ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
 Name:		xpdf-japanese
 Version:	1.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}.tar.gz
@@ -76,14 +76,16 @@ else
 fi
 
 %preun
-umask 022
-grep -v 'ISO-2022-JP\.unicodeMap' /etc/xpdfrc > /etc/xpdfrc.new
-grep -v 'EUC-JP\.unicodeMap' /etc/xpdfrc.new > /etc/xpdfrc
-grep -v 'Shift-JIS\.unicodeMap' /etc/xpdfrc > /etc/xpdfrc.new
-grep -v 'Adobe-Japan1\.cidToUnicode' /etc/xpdfrc.new > /etc/xpdfrc
-grep -v 'CMap-japanese' /etc/xpdfrc > /etc/xpdfrc.new
-grep -v -e '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-jisx0208\.1983-0' /etc/xpdfrc.new > /etc/xpdfrc
-rm -f /etc/xpdfrc.new
+if [ "$1" = "0" ]; then
+	umask 022
+	grep -v 'ISO-2022-JP\.unicodeMap' /etc/xpdfrc > /etc/xpdfrc.new
+	grep -v 'EUC-JP\.unicodeMap' /etc/xpdfrc.new > /etc/xpdfrc
+	grep -v 'Shift-JIS\.unicodeMap' /etc/xpdfrc > /etc/xpdfrc.new
+	grep -v 'Adobe-Japan1\.cidToUnicode' /etc/xpdfrc.new > /etc/xpdfrc
+	grep -v 'CMap-japanese' /etc/xpdfrc > /etc/xpdfrc.new
+	grep -v -e '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-jisx0208\.1983-0' /etc/xpdfrc.new > /etc/xpdfrc
+	rm -f /etc/xpdfrc.new
+fi
 
 %files
 %defattr(644,root,root,755)
