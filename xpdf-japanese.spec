@@ -11,7 +11,6 @@ Requires:	xpdf
 Requires(post,preun):	grep
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 The Xpdf language support packages include CMap files, text encodings,
 and various other configuration information necessary or useful for
@@ -42,29 +41,29 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ ! -f /etc/xpdfrc ]; then
-	echo 'unicodeMap	ISO-2022-JP	/usr/X11R6/share/xpdf/ISO-2022-JP.unicodeMap' >> /etc/xpdfrc
-	echo 'unicodeMap	EUC-JP		/usr/X11R6/share/xpdf/EUC-JP.unicodeMap' >> /etc/xpdfrc
-	echo 'unicodeMap	Shift-JIS	/usr/X11R6/share/xpdf/Shift-JIS.unicodeMap' >> /etc/xpdfrc
-	echo 'cidToUnicode	Adobe-Japan1	/usr/X11R6/share/xpdf/Adobe-Japan1.cidToUnicode' >> /etc/xpdfrc
-	echo 'cMapDir		Adobe-Japan1	/usr/X11R6/share/xpdf/CMap-japanese' >> /etc/xpdfrc
-	echo 'toUnicodeDir			/usr/X11R6/share/xpdf/CMap-japanese' >> /etc/xpdfrc
+	echo 'unicodeMap	ISO-2022-JP	/usr/share/xpdf/ISO-2022-JP.unicodeMap' >> /etc/xpdfrc
+	echo 'unicodeMap	EUC-JP		/usr/share/xpdf/EUC-JP.unicodeMap' >> /etc/xpdfrc
+	echo 'unicodeMap	Shift-JIS	/usr/share/xpdf/Shift-JIS.unicodeMap' >> /etc/xpdfrc
+	echo 'cidToUnicode	Adobe-Japan1	/usr/share/xpdf/Adobe-Japan1.cidToUnicode' >> /etc/xpdfrc
+	echo 'cMapDir		Adobe-Japan1	/usr/share/xpdf/CMap-japanese' >> /etc/xpdfrc
+	echo 'toUnicodeDir			/usr/share/xpdf/CMap-japanese' >> /etc/xpdfrc
 	echo 'displayCIDFontX	Adobe-Japan1	"-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-jisx0208.1983-0" ISO-2022-JP' >> /etc/xpdfrc
 else
- if ! grep -q /usr/X11R6/share/xpdf/ISO-2022-JP.unicodeMap /etc/xpdfrc; then
-	echo 'unicodeMap	ISO-2022-JP	/usr/X11R6/share/xpdf/ISO-2022-JP.unicodeMap' >> /etc/xpdfrc
+ if ! grep -q ISO-2022-JP.unicodeMap /etc/xpdfrc; then
+	echo 'unicodeMap	ISO-2022-JP	/usr/share/xpdf/ISO-2022-JP.unicodeMap' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/EUC-JP.unicodeMap /etc/xpdfrc; then
-	echo 'unicodeMap	EUC-JP		/usr/X11R6/share/xpdf/EUC-JP.unicodeMap' >> /etc/xpdfrc
+ if ! grep -q EUC-JP.unicodeMap /etc/xpdfrc; then
+	echo 'unicodeMap	EUC-JP		/usr/share/xpdf/EUC-JP.unicodeMap' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/Shift-JIS.unicodeMap /etc/xpdfrc; then
-	echo 'unicodeMap	Shift-JIS	/usr/X11R6/share/xpdf/Shift-JIS.unicodeMap' >> /etc/xpdfrc
+ if ! grep -q Shift-JIS.unicodeMap /etc/xpdfrc; then
+	echo 'unicodeMap	Shift-JIS	/usr/share/xpdf/Shift-JIS.unicodeMap' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/Adobe-Japan1.cidToUnicode /etc/xpdfrc; then
-	echo 'cidToUnicode	Adobe-Japan1	/usr/X11R6/share/xpdf/Adobe-Japan1.cidToUnicode' >> /etc/xpdfrc
+ if ! grep -q Adobe-Japan1.cidToUnicode /etc/xpdfrc; then
+	echo 'cidToUnicode	Adobe-Japan1	/usr/share/xpdf/Adobe-Japan1.cidToUnicode' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/CMap-japanese /etc/xpdfrc; then
-	echo 'cMapDir		Adobe-Japan1	/usr/X11R6/share/xpdf/CMap-japanese' >> /etc/xpdfrc
-	echo 'toUnicodeDir			/usr/X11R6/share/xpdf/CMap-japanese' >> /etc/xpdfrc
+ if ! grep -q CMap-japanese /etc/xpdfrc; then
+	echo 'cMapDir		Adobe-Japan1	/usr/share/xpdf/CMap-japanese' >> /etc/xpdfrc
+	echo 'toUnicodeDir			/usr/share/xpdf/CMap-japanese' >> /etc/xpdfrc
  fi
  if ! grep -q "-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-jisx0208.1983-0" /etc/xpdfrc; then
 	echo 'displayCIDFontX	Adobe-Japan1	"-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-jisx0208.1983-0" ISO-2022-JP' >> /etc/xpdfrc
@@ -72,11 +71,11 @@ else
 fi
 
 %preun
-grep -v /usr/X11R6/share/xpdf/ISO-2022-JP.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
-grep -v /usr/X11R6/share/xpdf/EUC-JP.unicodeMap /etc/xpdfrc.new > /etc/xpdfrc
-grep -v /usr/X11R6/share/xpdf/Shift-JIS.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
-grep -v /usr/X11R6/share/xpdf/Adobe-Japan1.cidToUnicode /etc/xpdfrc.new > /etc/xpdfrc
-grep -v /usr/X11R6/share/xpdf/CMap-japanese /etc/xpdfrc > /etc/xpdfrc.new
+grep -v ISO-2022-JP.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
+grep -v EUC-JP.unicodeMap /etc/xpdfrc.new > /etc/xpdfrc
+grep -v Shift-JIS.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
+grep -v Adobe-Japan1.cidToUnicode /etc/xpdfrc.new > /etc/xpdfrc
+grep -v CMap-japanese /etc/xpdfrc > /etc/xpdfrc.new
 grep -v "-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-jisx0208.1983-0" /etc/xpdfrc.new > /etc/xpdfrc
 rm -f /etc/xpdfrc.new
 
