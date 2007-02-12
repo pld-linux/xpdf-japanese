@@ -1,5 +1,5 @@
 Summary:	ISO-2022-JP, EUC-JP and Shift-JIS encoding support for xpdf
-Summary(pl.UTF-8):   Wsparcie kodowania ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
+Summary(pl.UTF-8):	Wsparcie kodowania ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
 Name:		xpdf-japanese
 Version:	1.0
 Release:	4
