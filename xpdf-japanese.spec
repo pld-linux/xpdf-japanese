@@ -1,12 +1,12 @@
 Summary:	ISO-2022-JP, EUC-JP and Shift-JIS encoding support for xpdf
-Summary(pl.UTF-8):	Wsparcie kodowania ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
+Summary(pl.UTF-8):	Obsługa kodowań ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
 Name:		xpdf-japanese
-Version:	1.0
-Release:	5
-License:	GPL
+Version:	20110815
+Release:	1
+License:	GPL v2 or GPL v3
 Group:		X11/Applications
-Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2004-jul-27.tar.gz
-# Source0-md5:	a11ee6476d0f381983664fc614f7a95e
+Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2011-aug-15.tar.gz
+# Source0-md5:	eafc6fc21be2b34db960c5b789a940b4
 URL:		http://www.foolabs.com/xpdf/
 Requires(post,preun):	grep
 Requires(post,preun):	xpdf
@@ -25,7 +25,7 @@ Japanese PDF files.
 %description -l pl.UTF-8
 Pakiety wspierające języki Xpdf zawierają pliki CMap, kodowania oraz
 różne inne informacje konfiguracyjne niezbędne bądź przydatne przy
-określonych zestawach znaków. (Nie zawierają żadnych fontów).
+określonych zestawach znaków (nie zawierają żadnych fontów).
 Ten pakiet zawiera pliki potrzebne do używania narzędzi Xpdf z
 japońskimi plikami PDF.
 
@@ -90,4 +90,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc README add-to-xpdfrc
-%{_datadir}/xpdf/*
+%{_datadir}/xpdf/Adobe-Japan1.cidToUnicode
+%{_datadir}/xpdf/EUC-JP.unicodeMap
+%{_datadir}/xpdf/ISO-2022-JP.unicodeMap
+%{_datadir}/xpdf/Shift-JIS.unicodeMap
+%{_datadir}/xpdf/CMap-japanese
