@@ -1,13 +1,14 @@
 Summary:	ISO-2022-JP, EUC-JP and Shift-JIS encoding support for xpdf
 Summary(pl.UTF-8):	Obsługa kodowań ISO-2022-JP, EUC-JP i Shift-JIS dla xpdf
 Name:		xpdf-japanese
-Version:	20110815
+Version:	20170725
 Release:	1
 License:	GPL v2 or GPL v3
 Group:		X11/Applications
-Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2011-aug-15.tar.gz
-# Source0-md5:	eafc6fc21be2b34db960c5b789a940b4
-URL:		http://www.foolabs.com/xpdf/
+#Source0Download: http://www.xpdfreader.com/download.html
+Source0:	https://xpdfreader-dl.s3.amazonaws.com/%{name}.tar.gz
+# Source0-md5:	0a44ffe48fd3f91d9e0a3a54d9d29a3c
+URL:		http://www.xpdfreader.com/
 Requires(post,preun):	grep
 Requires(post,preun):	xpdf
 Requires(preun):	fileutils
